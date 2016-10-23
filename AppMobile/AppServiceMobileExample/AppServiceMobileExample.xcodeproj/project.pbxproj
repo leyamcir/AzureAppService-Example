@@ -14,6 +14,7 @@
 		1C288FAD1DBD5BE200CE6B29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C288FAB1DBD5BE200CE6B29 /* LaunchScreen.storyboard */; };
 		1C288FB51DBD5DE400CE6B29 /* MicrosoftAzureMobile.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C288FB41DBD5DE400CE6B29 /* MicrosoftAzureMobile.framework */; };
 		1C288FB91DBD5ECE00CE6B29 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C288FB81DBD5ECE00CE6B29 /* WebKit.framework */; };
+		1C288FBC1DBD5F5800CE6B29 /* AuthorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C288FBB1DBD5F5800CE6B29 /* AuthorTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		1C288FB41DBD5DE400CE6B29 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MicrosoftAzureMobile.framework; path = ../MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		1C288FB61DBD5E1D00CE6B29 /* MyApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MyApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		1C288FB81DBD5ECE00CE6B29 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		1C288FBB1DBD5F5800CE6B29 /* AuthorTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 		1C288F9E1DBD5BE200CE6B29 /* AppServiceMobileExample */ = {
 			isa = PBXGroup;
 			children = (
+				1C288FBA1DBD5F2A00CE6B29 /* Vcs */,
 				1C288FB41DBD5DE400CE6B29 /* MicrosoftAzureMobile.framework */,
 				1C288F9F1DBD5BE200CE6B29 /* AppDelegate.swift */,
 				1C288FA31DBD5BE200CE6B29 /* Main.storyboard */,
@@ -80,6 +83,14 @@
 				1C288FB81DBD5ECE00CE6B29 /* WebKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1C288FBA1DBD5F2A00CE6B29 /* Vcs */ = {
+			isa = PBXGroup;
+			children = (
+				1C288FBB1DBD5F5800CE6B29 /* AuthorTableViewController.swift */,
+			);
+			name = Vcs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 			files = (
 				1C288FA81DBD5BE200CE6B29 /* AppServiceMobileExample.xcdatamodeld in Sources */,
 				1C288FA01DBD5BE200CE6B29 /* AppDelegate.swift in Sources */,
+				1C288FBC1DBD5F5800CE6B29 /* AuthorTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
