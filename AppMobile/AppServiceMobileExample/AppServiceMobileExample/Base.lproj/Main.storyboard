@@ -19,7 +19,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="67h-vm-nQF" id="553-aK-CRz">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -29,7 +29,13 @@
                             <outlet property="delegate" destination="S6P-q0-qC3" id="7Cv-gf-V5z"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="BqW-za-XWR"/>
+                    <navigationItem key="navigationItem" id="BqW-za-XWR">
+                        <barButtonItem key="rightBarButtonItem" title="Item" systemItem="add" id="WdW-qd-lhU">
+                            <connections>
+                                <action selector="addNewAuthor:" destination="S6P-q0-qC3" id="JaG-WF-1mx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rvd-gQ-CBO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

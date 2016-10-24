@@ -12,7 +12,34 @@ class AuthorTableViewController: UITableViewController {
     
     var client: MSClient = MSClient(applicationURL: URL(string: "http://amdcboot3labs-mbaas.azurewebsites.net")!)
 
-    var model: [String]? = []
+    var model: [Dictionary<String, AnyObject>]? = []
+    
+    @IBAction func addNewAuthor(_ sender: AnyObject) {
+        let alert = UIAlertController(title: "Nuevo Autor", message: "Escribe el nombre de un autor", preferredStyle: .alert)
+        
+        
+        let actionOk = UIAlertAction(title: "OK", style: .default) { (alertAction) in
+            let nameAutor = alert.textFields![0] as UITextField
+            let secondName = alert.textFields![1] as UITextField
+            
+            
+            self.insertNewAutor(nameAutor.text!, secondName: secondName.text!)
+            
+        }
+        let actionCancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(actionOk)
+        alert.addAction(actionCancel)
+        alert.addTextField { (textField) in
+            
+            textField.placeholder = "Introduce un nombre del autor"
+            
+        }
+        
+        alert.addTextField {(textfield2) in
+            textfield2.placeholder = "Introduce los apellidos"
+        }
+        present(alert, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +51,8 @@ class AuthorTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         addNewAuthor("Carlos Ruiz Zafón")
+        
+        readAllItemsInTable()
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,10 +61,10 @@ class AuthorTableViewController: UITableViewController {
     }
     
     // MARK: - Insert in Authors table
-    func addNewAuthor(_ name: String) {
+    func insertNewAutor(_ name: String) {
         let tableMS = client.table(withName: "Authors")
         
-        tableMS.insert(["name": name]) { (result, error) in
+        tableMS.insert(["name": name, "lastname": lastname]) { (result, error) in
             
             if let _ = error {
                 print(error)
@@ -46,7 +75,24 @@ class AuthorTableViewController: UITableViewController {
             
         }
     }
-
+    
+    func readAllItemsInTable() {
+        let tableMS = client.table(withName: "Authors")
+        let predicate = NSPredicate(format: "name = 'Juan Martin'")
+        
+        tableMS.read(with: predicate) { (results, error) in
+            if let _ = error {
+                print(error)
+                return
+            }
+            
+            if let items = results {
+                for item in items.items!{
+                    self.model?.append(item as! [String : AnyObject])
+                }
+            }
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
