@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1C2563141DBEB27F005F3E6E /* AuthorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C2563131DBEB27F005F3E6E /* AuthorDetailViewController.swift */; };
 		1C288FA01DBD5BE200CE6B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C288F9F1DBD5BE200CE6B29 /* AppDelegate.swift */; };
 		1C288FA51DBD5BE200CE6B29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1C288FA31DBD5BE200CE6B29 /* Main.storyboard */; };
 		1C288FA81DBD5BE200CE6B29 /* AppServiceMobileExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1C288FA61DBD5BE200CE6B29 /* AppServiceMobileExample.xcdatamodeld */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C2563131DBEB27F005F3E6E /* AuthorDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthorDetailViewController.swift; sourceTree = "<group>"; };
 		1C288F9C1DBD5BE200CE6B29 /* AppServiceMobileExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppServiceMobileExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1C288F9F1DBD5BE200CE6B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1C288FA41DBD5BE200CE6B29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				1C288FBB1DBD5F5800CE6B29 /* AuthorTableViewController.swift */,
+				1C2563131DBEB27F005F3E6E /* AuthorDetailViewController.swift */,
 			);
 			name = Vcs;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1C2563141DBEB27F005F3E6E /* AuthorDetailViewController.swift in Sources */,
 				1C288FA81DBD5BE200CE6B29 /* AppServiceMobileExample.xcdatamodeld in Sources */,
 				1C288FA01DBD5BE200CE6B29 /* AppDelegate.swift in Sources */,
 				1C288FBC1DBD5F5800CE6B29 /* AuthorTableViewController.swift in Sources */,
@@ -339,6 +343,7 @@
 				1C288FB31DBD5BE200CE6B29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
