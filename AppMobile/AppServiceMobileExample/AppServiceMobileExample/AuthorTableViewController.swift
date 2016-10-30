@@ -17,7 +17,7 @@ class AuthorTableViewController: UITableViewController {
     var model: [AuthorRecord]? = []
     
     @IBAction func addNewAuthor(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Nuevo Autor", message: "Escribe el nombre de un autor", preferredStyle: .alert)
+        let alert = UIAlertController(title: "New Author", message: "Write Author's name", preferredStyle: .alert)
         
         
         let actionOk = UIAlertAction(title: "OK", style: .default) { (alertAction) in
@@ -33,12 +33,12 @@ class AuthorTableViewController: UITableViewController {
         alert.addAction(actionCancel)
         alert.addTextField { (textField) in
             
-            textField.placeholder = "Introduce un nombre del autor"
+            textField.placeholder = "Insert Author's name"
             
         }
         
         alert.addTextField {(textfield2) in
-            textfield2.placeholder = "Introduce los apellidos"
+            textfield2.placeholder = "Insert lastname"
         }
         present(alert, animated: true, completion: nil)
     }
@@ -52,9 +52,11 @@ class AuthorTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
-        insertNewAuthor(name: "Carlos", lastname: "Ruiz Zafón")
+        
+        //insertNewAuthor(name: "Carlos", lastname: "Ruiz Zafón")
         
         readAllItemsInTable()
+ 
     }
 
     override func didReceiveMemoryWarning() {
@@ -105,9 +107,17 @@ class AuthorTableViewController: UITableViewController {
                 return
             }
             
+            if !((self.model?.isEmpty)!) {
+                self.model?.removeAll()
+            }
+            
             if let items = results {
-                for item in items.items!{
-                    self.model?.append(item as! [String : AnyObject])
+                for item in items.items! {
+                    self.model?.append(item as! [String: AnyObject])
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
             }
         }
@@ -115,13 +125,18 @@ class AuthorTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        if (model?.isEmpty)! {
+            return 0
+        }
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if (model?.isEmpty)! {
+            return 0
+        }
+        
+        return (model?.count)!
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,23 +145,17 @@ class AuthorTableViewController: UITableViewController {
         performSegue(withIdentifier: "detailAuthor", sender: item)
     }
 
-    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CELL", for: indexPath)
+        
         // Configure the cell...
-
+        let item = model?[indexPath.row]
+        
+        cell.textLabel?.text = item?["name"] as! String?
+        
         return cell
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
 
     
     // Override to support editing the table view.
